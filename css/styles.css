@@ -1,0 +1,81 @@
+/** generic CSS, mobile first therefore elements fit edge to edge of the browser screen and will grow as the screen increasing **/
+
+body {
+    /**add base body font properties **/
+    text-align: center;
+    /* color: #fff; */
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 100%; /**default of 16px also equal to 1rem**/
+    line-height: 1.5;
+}
+
+/*The images have to be flexible and img {max-width: 100%} does that. This code can already be found in your modern CSS reset but will have to be commented back in. Demonstrate how the images break the layout with it.*/
+img {
+    max-width: 100%;
+}
+
+header,
+footer {
+    background-color: #115194;
+    margin-bottom: 24px; /**24px/16px = 1.5rem **/
+    margin-bottom: 1.5rem;
+}
+
+header > h1 {
+    padding: 48px;
+    padding: 3rem;
+}
+
+nav {
+    background-color: #4BB19D;
+    padding: 16px;
+    padding: 1rem;
+}
+
+.banner {
+    background-color: #B8BAC3;
+    margin-bottom: 1.5rem; /*24px*/
+    padding: 18rem 1rem; /*288px 16px*/
+}
+
+.promo {
+    background-color: #B0D892;
+    margin-bottom: 1.5rem; /*24px*/
+    padding: 8rem 1rem; /**128px 16px**/
+    /**liquid or fluid layout is done in % so they grow with screen width **/
+    width: 100%;
+}
+
+footer {
+    padding: 3rem; /**48px **/
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: column;
+}
+
+/**liquid or fluid layouts are great mobile devices, but on desktops we often want to switch to a fixed width container */
+/** we will use a media query to change our layout for devices with a screen size wider than 1365px */
+
+@media  screen and (min-width: 1366px) {
+    /** the CSS rules in here will only apply to screens 1366px and wider */
+    .container {
+        /** the width of the container should be smaller or the exact the same of the min-width condition to all for margins on the left and right **/
+        width: 75rem; /**1200px**/
+        margin: 0 auto;
+    }
+
+    .flex-container {
+         /** take the leftover 4% of available space and create gutters between the columns **/
+        justify-content: space-between;
+        flex-flow: row;
+    }
+
+    .promo {
+        width: 32%;
+        /** three columns across, each be 33.333% but if we make them 32% each, there will be 4% of space left over for gutter spacing */
+    }
+}
